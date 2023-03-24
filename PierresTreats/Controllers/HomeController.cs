@@ -8,7 +8,7 @@ using System.Security.Claims;
 
 namespace PierresTreats.Controllers
 {
-  public class HomeController : Controllers
+  public class HomeController : Controller
   {
     private readonly PierresTreatsContext _db;
     private readonly UserManager<ApplicationUser> _userManager;
@@ -21,15 +21,17 @@ namespace PierresTreats.Controllers
     [HttpGet("/")]
     public async Task<ActionResult> Index()
     {
-      // Treat logic
+      //Treat logic
       Treat[] treats = _db.Treats.ToArray();
       Dictionary<string, object[]> model = new Dictionary<string, object[]>();
       model.Add("treats", treats);
-
-      // Flavor logic
-      Flavor[] flavor = _db.Flavors.ToArray();
+      
+      //Flavor logic
+      Flavor[] flavors = _db.Flavors.ToArray();
       Dictionary<string, object[]> model = new Dictionary<string, object[]>();
       model.Add("flavors", flavors);
+
+      return View(model);
     }
   }
 }

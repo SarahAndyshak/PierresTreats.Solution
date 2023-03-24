@@ -1,12 +1,12 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace PierresTreats.Models
+namespace PierresTreats.ViewModels
 {
   public class RegisterViewModel
   {
     [Required]
     [EmailAddress]
-    [Display(nameof = "Email Address")]
+    [Display(Name = "Email Address")]
     public string Email { get; set; }
 
     [Required]
@@ -16,8 +16,9 @@ namespace PierresTreats.Models
 
     [Required]
     [DataType(DataType.Password)]
-    [Display(nameof = "Confirm password")]
+    [Display(Name = "Confirm password")]
     [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+
     public string ConfirmPassword { get; set; }
   }
 }
