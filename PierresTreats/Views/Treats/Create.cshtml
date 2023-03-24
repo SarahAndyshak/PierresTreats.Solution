@@ -1,0 +1,17 @@
+@{
+  Layout = "_Layout";
+}
+
+@model PierresTreats.Models.Treat
+
+<h4>Add a new treat</h4>
+
+<p>@Html.ValidationMessageFor(model => model.TreatName, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
+
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.TreatName, "Treat Name")
+  @Html.TextBoxFor(model => model.TreatName)
+
+  <input type="submit" value="Add new treat" />
+}

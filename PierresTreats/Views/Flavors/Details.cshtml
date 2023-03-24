@@ -5,17 +5,17 @@
 @using PierresTreats.Models
 @model PierresTreats.Models.Flavor
 
-<h2>Recipe Details</h2>
+<h2>Flavor Details</h2>
 <hr />
-<h3>Recipe Name: @Html.DisplayFor(model => model.FlavorType)</h3>
+<h3>Flavor Profile: @Html.DisplayFor(model => model.FlavorType)</h3>
 
 @if (@Model.JoinFlavorTreat.Count == 0)
 {
-  <p>This flavor is not associated with any treats yet!</p>
+  <p>This flavor profile is not associated with any treats yet!</p>
 }
 else
 {
-  <h4>This flavor is associated with the following treats:</h4>
+  <h4>This flavor profile is associated with the following treats:</h4>
   <ul>
   @foreach (FlavorTreat join in Model.JoinFlavorTreat)
     {
