@@ -22,6 +22,7 @@ namespace PierresTreats.Controllers
       _db = db;
     }
 
+// This may need to be reset to make it public
     public async Task<ActionResult> Index()
     {
       string userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
