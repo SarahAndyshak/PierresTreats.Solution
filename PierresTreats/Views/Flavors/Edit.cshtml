@@ -1,0 +1,20 @@
+@{
+  Layout = "_Layout";
+}
+
+@using PierresTreats.Models
+@model PierresTreats.Models.Flavor
+
+<h2>Edit this Flavor</h2>
+
+<h4>Edit this flavor: @Html.DisplayFor(model => model.FlavorType)</h4>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.FlavorId)
+
+  @Html.LabelFor(model => model.FlavorType)
+  @Html.EditorFor(model => model.FlavorType)
+
+  <input type="submit" value="Save" />
+}
