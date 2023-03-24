@@ -111,7 +111,7 @@ namespace PierresTreats.Controllers
       }
     }
 
-// actions to join and separate flavors and treats
+// actions to join and separate flavors and treats -- maybe restrict access?
     public ActionResult AddTreat(int id)
     {
       Flavor thisFlavor = _db.Flavors.FirstOrDefault(flavor => flavor.FlavorId == id);
