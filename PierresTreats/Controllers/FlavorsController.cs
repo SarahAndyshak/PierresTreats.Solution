@@ -22,11 +22,8 @@ namespace PierresTreats.Controllers
       _db = db;
     }
 
-// This may need to be reset to make it public
-    public async Task<ActionResult> Index()
+    public ActionResult Index()
     {
-      string userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-      ApplicationUser currentUser = await _userManager.FindByIdAsync(userId);
       List<Flavor> model = _db.Flavors.ToList();
       return View(model);
     }
