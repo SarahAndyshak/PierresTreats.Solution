@@ -11,11 +11,12 @@ namespace PierresTreats.Controllers
     private readonly PierresTreatsContext _db;
     private readonly UserManager<ApplicationUser> _userManager;
     private readonly SignInManager<ApplicationUser> _signInManager;
+
     public AccountController (UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, PierresTreatsContext db)
     {
       _userManager = userManager;
-      _signInManager = signInManager; 
-      _db = db; 
+      _signInManager = signInManager;
+      _db = db;
     }
 
     public ActionResult Index()
@@ -75,7 +76,7 @@ namespace PierresTreats.Controllers
         }
         else
         {
-          ModelState.AddModelError("", "There is something wrong with your email or username.Please try again.");
+          ModelState.AddModelError("", "There is something wrong with your email or username. Please try again.");
           return View(model);
         }
       }
