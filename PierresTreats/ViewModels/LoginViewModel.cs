@@ -6,7 +6,7 @@ namespace PierresTreats.ViewModels
   {
     [Required]
     [EmailAddress]
-    [Display(nameof = "Email Address")]
+    [Display(Name = "Email Address")]
     public string Email { get; set; }
 
     [Required]

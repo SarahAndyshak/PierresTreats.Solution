@@ -28,7 +28,6 @@ namespace PierresTreats.Controllers
       
       //Flavor logic
       Flavor[] flavors = _db.Flavors.ToArray();
-      Dictionary<string, object[]> model = new Dictionary<string, object[]>();
       model.Add("flavors", flavors);
 
       return View(model);
