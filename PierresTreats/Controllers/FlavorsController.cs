@@ -1,28 +1,28 @@
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Identity;
+using PierresTreats.Models;
 using System.Collections.Generic;
 using System.Linq;
-using PierresTreats.Models;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using System.Threading.Tasks;
 using System.Security.Claims;
 
 namespace PierresTreats.Controllers
 {
   [Authorize]
-  public class FlavorController : Controller
+  public class FlavorsController : Controller
   {
     private readonly PierresTreatsContext _db;
     private readonly UserManager<ApplicationUser> _userManager;
-    public FlavorController(UserManager<ApplicationUser> userManager, PierresTreatsContext db)
+
+    public FlavorsController(UserManager<ApplicationUser> userManager, PierresTreatsContext db)
     {
       _userManager = userManager;
       _db = db;
     }
 
-// This may need to be reset to make it public
     public async Task<ActionResult> Index()
     {
       string userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
@@ -37,10 +37,11 @@ namespace PierresTreats.Controllers
     }
 
     [HttpPost]
-    public async Task<ActionResult> Create(Flavor flavor)
+    public async Task<ActionResult> Create(Flavor flavor, int TreatId)
     {
       if (!ModelState.IsValid)
       {
+        ViewBag.TreatId = new SelectList(_db.Treats, "TreatId", "TreatName");
         return View(flavor);
       }
       else
@@ -58,7 +59,7 @@ namespace PierresTreats.Controllers
     {
       Flavor thisFlavor = _db.Flavors
                           .Include(flavor => flavor.JoinFlavorTreat)
-                          .ThenInclude(join => join.Flavor)
+                          .ThenInclude(join => join.Treat)
                           .FirstOrDefault(flavor => flavor.FlavorId == id);
       return View(thisFlavor);
     }
@@ -66,6 +67,7 @@ namespace PierresTreats.Controllers
     public ActionResult Edit(int id)
     {
       Flavor thisFlavor = _db.Flavors.FirstOrDefault(flavor => flavor.FlavorId == id);
+      ViewBag.TreatId = new SelectList(_db.Treats, "TreatId", "TreatName");
       return View(thisFlavor);
     }
 
@@ -114,7 +116,7 @@ namespace PierresTreats.Controllers
 // actions to join and separate flavors and treats -- maybe restrict access?
     public ActionResult AddTreat(int id)
     {
-      Flavor thisFlavor = _db.Flavors.FirstOrDefault(flavor => flavor.FlavorId == id);
+      Flavor thisFlavor = _db.Flavors.FirstOrDefault(flavors => flavors.FlavorId == id); //check here
       ViewBag.TreatId = new SelectList(_db.Treats, "TreatId", "TreatName");
       return View(thisFlavor);
     }
