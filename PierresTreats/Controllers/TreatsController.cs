@@ -11,7 +11,6 @@ using System.Security.Claims;
 
 namespace PierresTreats.Controllers
 {
-  [Authorize]
   public class TreatsController : Controller
   {
     private readonly PierresTreatsContext _db;
@@ -37,6 +36,7 @@ namespace PierresTreats.Controllers
       return View(model);
     }
 
+  [Authorize]
     public ActionResult Create()
     {
       return View();
@@ -69,6 +69,7 @@ namespace PierresTreats.Controllers
       return View(thisTreat);
     }
 
+    [Authorize]
     public ActionResult Edit(int id)
     {
       Treat thisTreat = _db.Treats.FirstOrDefault(treat => treat.TreatId == id);
@@ -93,6 +94,7 @@ namespace PierresTreats.Controllers
       }
     }
 
+      [Authorize]
     public ActionResult Delete(int id)
     {
       Treat thisTreat = _db.Treats.FirstOrDefault(treat => treat.TreatId == id);
@@ -117,7 +119,7 @@ namespace PierresTreats.Controllers
       }
     }
 
-// actions to join and separate flavors and treats -- maybe restrict access?
+    [Authorize]
     public ActionResult AddFlavor(int id)
     {
       Treat thisTreat = _db.Treats.FirstOrDefault(treats => treats.TreatId == id);

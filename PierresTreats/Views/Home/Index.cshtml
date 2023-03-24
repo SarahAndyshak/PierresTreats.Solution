@@ -19,7 +19,7 @@
 <ul>
   @foreach (Treat treat in Model["treats"])
   {
-    <li>@Html.ActionLink(@treat.TreatName, "Details", "Treats", new { id = @treat.TreatId})</li>
+    <li>@Html.ActionLink(@treat.TreatName, "Details", "Treats", new { id = @treat.TreatId}) </li>
   }
 </ul>
 
