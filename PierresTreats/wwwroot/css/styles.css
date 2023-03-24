@@ -1,10 +1,40 @@
+body {
+	background: linear-gradient(rgba(255, 255, 255, .7), rgba(255, 255, 255, .7)), url("./../img/BreadBasket.jpeg"), center no-repeat fixed;
+	background-size: cover;
+	font-family: 'Gill Sans';
+	font-size: larger;
+	color: rgb(94, 71, 106);
+}
+
 div#footer {
 	position:fixed;
 	bottom:0px;
 	left:0px;
 	width:100%;
-	color:white;
-	background:rgb(107, 89, 116);
-  opacity: 70%;
+	color:rgb(94, 71, 106);
+	background:rgb(174, 213, 217, .5);
 	padding:8px;
+	text-align: center;
+}
+
+div#main-body {
+	margin-top: 20px;
+	margin-left: 5%;
+	margin-right: 5%;
+}
+
+div#splash-intro {
+	text-align: center;
+}
+
+div#nav-links {
+	text-align: center;
+}
+
+a {
+	color: rgb(94, 71, 106);
+}
+
+a:hover {
+	color: darkcyan;
 }

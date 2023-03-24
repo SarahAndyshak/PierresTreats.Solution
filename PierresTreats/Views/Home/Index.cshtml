@@ -4,12 +4,15 @@
 
 @using PierresTreats.Models;
 
-<h1>Welcome to Pierre's Bakery!</h1>
-<h3>Supplying Sweet and Savory Treats since 2023</h3>
+<div id="splash-intro">
+  <h1>Welcome to Pierre's Bakery!</h1>
+  <h3>Supplying Sweet and Savory Treats since 2023</h3>
+
 
 <hr>
 
 <p>Take a look at the treats and flavors that we have available by clicking on the links below!</p>
+</div>
 
 <h4>Treats</h4>
 @if (Model["treats"].Length == 0)
@@ -37,5 +40,7 @@
 
 <hr>
 
-<p>@Html.ActionLink("Manage treats", "Index", "Treats") | @Html.ActionLink("Manage flavors", "Index", "Flavors")</p>
-<p>@Html.ActionLink("Create or manage an account", "Index", "Account")</p>
+<div id="nav-links">
+  <p>@Html.ActionLink("Manage treats", "Index", "Treats") | @Html.ActionLink("Manage flavors", "Index", "Flavors")</p>
+  <p>@Html.ActionLink("Create or manage an account", "Index", "Account")</p>
+</div>

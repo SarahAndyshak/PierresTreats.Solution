@@ -19,7 +19,7 @@ else
   <ul>
   @foreach (FlavorTreat join in Model.JoinFlavorTreat)
     {
-      <li>Tag: @join.Treat.TreatName</li>
+      <li>Treat: @join.Treat.TreatName</li>
       @using (Html.BeginForm("DeleteJoin", "Flavor"))
       {
         @Html.Hidden("joinId", @join.FlavorTreatId)
@@ -29,5 +29,6 @@ else
   </ul>
 }
 
-<p>@Html.ActionLink("Edit Flavor", "Edit", new { id = Model.FlavorId }) | @Html.ActionLink("Delete Flavor", "Delete", new { id = Model.FlavorId }) | @Html.ActionLink("Add a Treat", "AddTreat", new {
-  id = Model.FlavorId })</p>
+<div id="nav-links">
+  <p>@Html.ActionLink("Edit Flavor", "Edit", new { id = Model.FlavorId }) | @Html.ActionLink("Delete Flavor", "Delete", new { id = Model.FlavorId }) | @Html.ActionLink("Add a Treat", "AddTreat", new { id = Model.FlavorId })</p>
+</div>
