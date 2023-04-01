@@ -21,38 +21,24 @@ A website for a bakery to show off pastries by type and flavor. Made using C# ex
 
 ## Setup/Installation Requirements
 
-* Clone this repo.
-* Open your terminal (e.g., Terminal or GitBash) and navigate to this project's production directory called "Library".
-* In the command line, run the command ``dotnet run`` to compile and execute the console application. Since this is a console application, you'll interact with it through text commands in your terminal.
-* Optionally, you can run ``dotnet build`` to compile this console app without running it.
 * This program was built using `Microsoft .NET SDK 6.0`, and may not be compatible with other versions.
-
-* If you want to run the project in production mode with a watcher, you can use a command line flag to specify that you want to run the "production" profile. ``dotnet watch run --launch-profile "production"``
-* Open the browser to [https://localhost:5001]. If you cannot access localhost:5001 it is likely because you have not configured a .NET developer security certificate for HTTPS. To learn about this, review this lesson: [Redirecting to HTTPS and Issuing a Security Certificate.](https://www.learnhowtoprogram.com/c-and-net/basic-web-applications/redirecting-to-https-and-issuing-a-security-certificate)
-
-## SQL Workbench Configuration
-* Create an `appsetting.json` file in the "Library" directory of the project.
-* Within `appsettings.json`, put in the following code, replacing the `uid` and `pwd` values with your own username and password for MySQL. 
+1. Clone this repo.
+2. Open your terminal (e.g., Terminal or GitBash) and navigate to this project's production directory called "PierresTreats."
+3. Create an `appsetting.json` file in the production directory ("PierresTreats.")
+4. Within `appsettings.json`, put in the following code, replacing the `uid` and `pwd` values with your own username and password for MySQL. 
 ```json
 {
     "ConnectionStrings": {
-        "DefaultConnection": "Server=localhost;Port=3306;database=library_catalog;uid=[YOUR-USERNAME-HERE];pwd=[YOUR-PASSWORD-HERE];"
+        "DefaultConnection": "Server=localhost;Port=3306;database=library_catalog;uid=YOUR-USERNAME-HERE;pwd=YOUR-PASSWORD-HERE;"
     }
 }
 ```
 * If you'd like to push this cloned project to a public-facing repository, remember to add the appsettings.json file to your .gitignore first.
-* Once "appsettings.json" file has been created, navigate back to SQL Workbench. 
-* Import the database named ``"PierresTreats.sql"`` from the root directory of the project. 
-
-## Database Import Instructions
-
-* Open SQL workbench.
-* Navigate to the "Administration" tab in SQL Workbench.
-* Click ``"Data Import/Restore"``
-* Select the radio button "Import from Self-Contained File" and include file path to the sql file of this project that has been cloned to your machine.
-* In "Default Schema to be Imported to" click "New".
-* Name the schema then click "OK".
-* Once named, switch to ``"Import Progress"`` tab and click ``"Start Import"``.
+5. Create the project database using the migrations in the production directory. In your shell (e.g., Terminal or GitBash) navigate to the production directory "PierresTreats," and run `dotnet ef database update`. You may need to run this command for each of the branches in this repo if multiple branches have been created. 
+    - Optional: to create a migration, run the command `dotnet ef migrations add MigrationName` where `MigrationName` is your custom name for the migration in UpperCamelCase. To learn more about migrations, visit the LHTP lesson [Code First Development and Migrations](https://www.learnhowtoprogram.com/c-and-net-part-time/many-to-many-relationships/code-first-development-and-migrations).
+6. Open the browser to [https://localhost:5001]. If you cannot access localhost:5001 it is likely because you have not configured a .NET developer security certificate for HTTPS. To learn about this, review this lesson: [Redirecting to HTTPS and Issuing a Security Certificate.](https://www.learnhowtoprogram.com/c-and-net/basic-web-applications/redirecting-to-https-and-issuing-a-security-certificate)
+* If you want to run the project in production mode with a watcher, you can use a command line flag to specify that you want to run the "production" profile. ``dotnet watch run --launch-profile "PierresTreats-Production"``
+* To optionally further build out this project in development mode, start the project with `dotnet watch run` in the production directory "PierresTreats."
 
 ## Known Bugs
 
