@@ -19,6 +19,11 @@
 
 A website for a bakery to show off pastries by type and flavor. Made using C# exploring authentication, authorization, and many-to-many relationships during Week 12 of Epicodus Coding School.
 
+Screenshots from the website:
+![splash page](splash.png)
+![details page](details.png)
+![flavor detail page](flavors.png)
+
 ## Setup/Installation Requirements
 
 * This program was built using `Microsoft .NET SDK 6.0`, and may not be compatible with other versions.
