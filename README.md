@@ -13,6 +13,7 @@
 * SQL Workbench
 * Entity Framework
 * Identity Framework
+* HTML
 * CSS
 
 ## Description
